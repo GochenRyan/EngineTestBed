@@ -3,11 +3,11 @@ target("ImGuiGreeting")
     add_deps(
         "libGLFW",
         "libImGui",
-        "libGlad",
+        "libGlad"
     )
-    add_headerfiles(
-        "*.h"
-    )
+    -- add_headerfiles(
+    --     "*.h"
+    -- )
     add_files(
         "*.cpp"
     )
@@ -15,9 +15,9 @@ target("ImGuiGreeting")
     add_includedirs(
         "$(projectdir)/Vendor/glfw/include/",
         "$(projectdir)/Vendor/imgui/",
-        "$(projectdir)/Vendor/glad/include/",
+        "$(projectdir)/Vendor/glad/include/"
     )
 
     add_linkdirs("$(projectdir)/lib/")
 
-    add_includedirs("$(projectdir)/ImGuiGreeting")
+    -- add_includedirs("$(projectdir)/ImGuiGreeting")

@@ -34,3 +34,4 @@
 .xmake
 build
 vsxmake2019
+lib/*
