@@ -5,9 +5,9 @@ target("ImGuiGreeting")
         "libImGui",
         "libGlad"
     )
-    -- add_headerfiles(
-    --     "*.h"
-    -- )
+    add_headerfiles(
+        "*.h"
+    )
     add_files(
         "*.cpp"
     )
@@ -20,4 +20,6 @@ target("ImGuiGreeting")
 
     add_linkdirs("$(projectdir)/lib/")
 
-    -- add_includedirs("$(projectdir)/ImGuiGreeting")
+    local editorResourcesPath = "$(projectdir)/Res"
+
+    add_defines("CDEDITOR_RESOURCES_ROOT_PATH=\""..editorResourcesPath.."\"")
