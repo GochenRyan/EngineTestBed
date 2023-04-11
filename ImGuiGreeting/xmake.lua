@@ -15,11 +15,10 @@ target("ImGuiGreeting")
     add_includedirs(
         "$(projectdir)/Vendor/glfw/include/",
         "$(projectdir)/Vendor/imgui/",
-        "$(projectdir)/Vendor/glad/include/"
+        "$(projectdir)/Vendor/glad/include/",
+        "$(projectdir)/Vendor/freetype/include/"
     )
 
     add_linkdirs("$(projectdir)/lib/")
 
-    local editorResourcesPath = "$(projectdir)/Res"
-
-    add_defines("CDEDITOR_RESOURCES_ROOT_PATH=\""..editorResourcesPath.."\"")
+    add_defines("CDEDITOR_RESOURCES_ROOT_PATH=\"" .. (os.projectdir():gsub("\\", "\\\\")) .. "/Res/" .. "\"")

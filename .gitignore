@@ -33,5 +33,5 @@
 .vscode
 .xmake
 build
-vsxmake2019
+vsxmake*
 lib/*

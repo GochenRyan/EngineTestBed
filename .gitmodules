@@ -6,3 +6,7 @@
 	path = Vendor/glfw
 	url = https://github.com/GochenRyan/glfw.git
 	branch = master
+[submodule "Vendor/freetype"]
+	path = Vendor/freetype
+	url = https://github.com/GochenRyan/freetype.git
+	branch = master

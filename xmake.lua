@@ -9,5 +9,6 @@ includes("TypeTrait")
 
 includes("Vendor/glfw")
 includes("Vendor/glad")
+includes("Vendor/freetype")
 includes("Vendor/imgui")
 includes("ImGuiGreeting")
