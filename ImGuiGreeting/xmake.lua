@@ -3,10 +3,13 @@ target("ImGuiGreeting")
     add_deps(
         "libGLFW",
         "libImGui",
-        "libGlad"
+        "libGlad",
+        "libSDL"
     )
     add_headerfiles(
-        "*.h"
+        "*.hpp",
+        "*.h",
+        "$(projectdir)/Vendor/stb/stb_image.h"
     )
     add_files(
         "*.cpp"
@@ -16,9 +19,15 @@ target("ImGuiGreeting")
         "$(projectdir)/Vendor/glfw/include/",
         "$(projectdir)/Vendor/imgui/",
         "$(projectdir)/Vendor/glad/include/",
-        "$(projectdir)/Vendor/freetype/include/"
+        "$(projectdir)/Vendor/freetype/include/",
+        "$(projectdir)/Vendor/SDL/include/"
+    )
+
+    add_links(
+        "libSDL"
     )
 
     add_linkdirs("$(projectdir)/lib/")
+    
 
     add_defines("CDEDITOR_RESOURCES_ROOT_PATH=\"" .. (os.projectdir():gsub("\\", "\\\\")) .. "/Res/" .. "\"")

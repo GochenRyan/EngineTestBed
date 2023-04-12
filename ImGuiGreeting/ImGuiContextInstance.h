@@ -1,5 +1,7 @@
 #pragma once
 
+#include "ThemeColor.h"
+
 #include <inttypes.h>
 #include <memory>
 #include <string>
@@ -47,6 +49,9 @@ public:
 
 	void SetWindowPosOffset(float x, float y) { m_windowPosOffsetX = x; m_windowPosOffsetY = y; }
 
+	ThemeColor GetImGuiThemeColor() const { return m_themeColor; }
+	void SetImGuiThemeColor(ThemeColor theme);
+
 	void SetSceneWorld(SceneWorld* pSceneWorld) { m_pSceneWorld = pSceneWorld; }
 	SceneWorld* GetSceneWorld() const { return m_pSceneWorld; }
 
@@ -59,6 +64,7 @@ private:
 private:
 	SceneWorld* m_pSceneWorld = nullptr;
 	ImGuiContext* m_pImGuiContext = nullptr;
+	ThemeColor m_themeColor;
 
 	float m_windowPosOffsetX = 0.0f;
 	float m_windowPosOffsetY = 0.0f;

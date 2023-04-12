@@ -10,3 +10,11 @@
 	path = Vendor/freetype
 	url = https://github.com/GochenRyan/freetype.git
 	branch = master
+[submodule "Vendor/stb"]
+	path = Vendor/stb
+	url = https://github.com/GochenRyan/stb.git
+	branch = master
+[submodule "Vendor/SDL"]
+	path = Vendor/SDL
+	url = https://github.com/GochenRyan/SDL.git
+	branch = main
