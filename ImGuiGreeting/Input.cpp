@@ -9,36 +9,36 @@ Input::Input()
 	memset(m_keyPressed, static_cast<int>(false), sizeof(bool) * MaxKeyCode);
 }
 
-bool Input::ContainsModifier(KeyMod mod) const
+bool Input::ContainsModifier(engine::KeyMod mod) const
 {
-	if (m_keyModifiers == KeyMod::KMOD_NONE) {
+	if (m_keyModifiers == engine::KeyMod::KMOD_NULL) {
 		return false;
 	}
-	return static_cast<std::underlying_type_t<KeyMod>>(m_keyModifiers) & static_cast<std::underlying_type_t<KeyMod>>(mod);
+	return static_cast<std::underlying_type_t<engine::KeyMod>>(m_keyModifiers) & static_cast<std::underlying_type_t<engine::KeyMod>>(mod);
 }
 
-void Input::SetModifier(KeyMod mod)
+void Input::SetModifier(engine::KeyMod mod)
 {
 	if (!ContainsModifier(mod))
 	{
-		m_keyModifiers = static_cast<KeyMod>(static_cast<std::underlying_type_t<KeyMod>>(m_keyModifiers) | static_cast<std::underlying_type_t<KeyMod>>(mod));
+		m_keyModifiers = static_cast<engine::KeyMod>(static_cast<std::underlying_type_t<engine::KeyMod>>(m_keyModifiers) | static_cast<std::underlying_type_t<engine::KeyMod>>(mod));
 	}
 }
 
-void Input::ClearModifier(KeyMod mod)
+void Input::ClearModifier(engine::KeyMod mod)
 {
 	if (ContainsModifier(mod))
 	{
-		m_keyModifiers = static_cast<KeyMod>(static_cast<std::underlying_type_t<KeyMod>>(m_keyModifiers) & ~static_cast<std::underlying_type_t<KeyMod>>(mod));
+		m_keyModifiers = static_cast<engine::KeyMod>(static_cast<std::underlying_type_t<engine::KeyMod>>(m_keyModifiers) & ~static_cast<std::underlying_type_t<engine::KeyMod>>(mod));
 	}
 }
 
-void Input::SetKeyPressed(KeyCode code, bool pressed)
+void Input::SetKeyPressed(engine::KeyCode code, bool pressed)
 { 
-	m_keyPressed[static_cast<std::underlying_type_t<KeyCode>>(code)] = pressed;
+	m_keyPressed[static_cast<std::underlying_type_t<engine::KeyCode>>(code)] = pressed;
 }
 
-void Input::AppendKeyEvent(KeyCode code, KeyMod mod, bool pressed)
+void Input::AppendKeyEvent(engine::KeyCode code, engine::KeyMod mod, bool pressed)
 {
 	KeyEvent newEvent;
 	newEvent.code = code;

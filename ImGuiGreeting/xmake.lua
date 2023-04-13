@@ -4,12 +4,12 @@ target("ImGuiGreeting")
         "libGLFW",
         "libImGui",
         "libGlad",
-        "libSDL"
+        "SDL3"
     )
     add_headerfiles(
         "*.hpp",
         "*.h",
-        "$(projectdir)/Vendor/stb/stb_image.h"
+        "$(projectdir)/Vendor/stb/*.h"
     )
     add_files(
         "*.cpp"
@@ -20,11 +20,12 @@ target("ImGuiGreeting")
         "$(projectdir)/Vendor/imgui/",
         "$(projectdir)/Vendor/glad/include/",
         "$(projectdir)/Vendor/freetype/include/",
-        "$(projectdir)/Vendor/SDL/include/"
+        "$(projectdir)/Vendor/SDL/include/",
+        "$(projectdir)/Vendor/stb/"
     )
 
     add_links(
-        "libSDL"
+        "SDL3"
     )
 
     add_linkdirs("$(projectdir)/lib/")

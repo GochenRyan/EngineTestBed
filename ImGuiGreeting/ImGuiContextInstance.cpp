@@ -100,7 +100,7 @@ std::unordered_map<KeyMod, ImGuiKey> kImguiKeyModToImGuiKeyLookup{
 };
 
 std::unordered_map<KeyMod, ImGuiKey> kImguiKeyModToImGuiModLookup{
-	{KeyMod::KMOD_NONE, ImGuiKey::ImGuiMod_None},
+	{KeyMod::KMOD_NULL, ImGuiKey::ImGuiMod_None},
 	{KeyMod::KMOD_LSHIFT, ImGuiKey::ImGuiMod_Shift},
 	{KeyMod::KMOD_RSHIFT, ImGuiKey::ImGuiMod_Shift},
 	{KeyMod::KMOD_LCTRL, ImGuiKey::ImGuiMod_Ctrl},
@@ -376,7 +376,7 @@ void ImGuiContextInstance::AddInputEvent()
 	for (uint32_t i = 0; i < keyEvents.size(); ++i)
 	{
 		const Input::KeyEvent keyEvent = keyEvents[i];
-		if (keyEvent.mod != KeyMod::KMOD_NONE)
+		if (keyEvent.mod != KeyMod::KMOD_NULL)
 		{
 			// Add the modifier key event
 			if (kImguiKeyModToImGuiModLookup.find(keyEvent.mod) != kImguiKeyModToImGuiModLookup.cend())

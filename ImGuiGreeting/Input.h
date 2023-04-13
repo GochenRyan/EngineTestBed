@@ -6,6 +6,8 @@
 #include <inttypes.h>
 #include <vector>
 
+using namespace engine;
+
 // Input system will cache keyboard/mouse/joystick/... status in current frame after processing Window message loop.
 // Then other modules can query these status from Input without binding their callbacks directly to Window system.
 // It will very useful if you want to implement a complex editor case:
@@ -21,8 +23,8 @@ public:
 
 	struct KeyEvent 
 	{
-		KeyCode code;
-		KeyMod mod;
+		engine::KeyCode code;
+		engine::KeyMod mod;
 		bool isPressed;
 	};
 
@@ -75,14 +77,14 @@ public:
 	void SetMousePositionOffsetY(int32_t y) { m_mousePositionOffsetY = y; }
 
 	// Keyboard device
-	bool IsKeyPressed(KeyCode code) const { return m_keyPressed[static_cast<uint8_t>(code)]; }
-	void SetKeyPressed(KeyCode code, bool pressed);
+	bool IsKeyPressed(engine::KeyCode code) const { return m_keyPressed[static_cast<uint8_t>(code)]; }
+	void SetKeyPressed(engine::KeyCode code, bool pressed);
 
-	void SetModifier(KeyMod mod);
-	void ClearModifier(KeyMod mod);
-	bool ContainsModifier(KeyMod mod) const;
+	void SetModifier(engine::KeyMod mod);
+	void ClearModifier(engine::KeyMod mod);
+	bool ContainsModifier(engine::KeyMod mod) const;
 
-	void AppendKeyEvent(KeyCode code, KeyMod mod, bool pressed);
+	void AppendKeyEvent(engine::KeyCode code, engine::KeyMod mod, bool pressed);
 	void AppendInputCharacter(const char* c, size_t len);
 
 	const std::vector<KeyEvent>& GetKeyEventList() const { return m_keyEventList; }
@@ -106,7 +108,7 @@ private:
 
 	// Keyboard device
 	bool m_keyPressed[MaxKeyCode]{};
-	KeyMod m_keyModifiers = KeyMod::KMOD_NONE;
+	engine::KeyMod m_keyModifiers = engine::KeyMod::KMOD_NULL;
 	std::vector<KeyEvent> m_keyEventList;
 	size_t m_inputCharBufferIndex = 0;
 	std::array<char, MaxInputCharBuffer> m_inputCharBuffer;
