@@ -18,3 +18,7 @@
 	path = Vendor/SDL
 	url = https://github.com/GochenRyan/SDL.git
 	branch = main
+[submodule "Vendor/bgfx"]
+	path = Vendor/bgfx
+	url = https://github.com/GochenRyan/bgfx.git
+	branch = master

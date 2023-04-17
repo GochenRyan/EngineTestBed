@@ -9,6 +9,7 @@ target("ImGuiGreeting")
     add_headerfiles(
         "*.hpp",
         "*.h",
+
         "$(projectdir)/Vendor/stb/*.h"
     )
     add_files(
