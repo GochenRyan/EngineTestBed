@@ -22,3 +22,11 @@
 	path = Vendor/bgfx
 	url = https://github.com/GochenRyan/bgfx.git
 	branch = master
+[submodule "Vendor/bx"]
+	path = Vendor/bx
+	url = https://github.com/GochenRyan/bx.git
+	branch = master
+[submodule "Vendor/bimg"]
+	path = Vendor/bimg
+	url = https://github.com/GochenRyan/bimg.git
+	branch = master

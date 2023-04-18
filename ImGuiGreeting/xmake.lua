@@ -2,6 +2,9 @@ target("ImGuiGreeting")
     set_kind("binary")
     add_deps(
         "libGLFW",
+        "libBGFX",
+        "libBX",
+        "libBImg",
         "libImGui",
         "libGlad",
         "SDL3"
