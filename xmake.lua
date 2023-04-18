@@ -2,8 +2,8 @@ set_project("EnigineTestBench")
 
 add_rules("mode.debug")
 set_languages("cxx20")
-add_cxxflags("/Zc:__cplusplus")
 
+add_cxxflags("/Zc:__cplusplus")
 
 set_targetdir("lib")
 

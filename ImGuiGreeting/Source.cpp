@@ -4,6 +4,9 @@
 #include "imgui.h"
 #include "MainMenu.h"
 
+#include <bgfx/bgfx.h>
+#include <bgfx/platform.h>
+
 int main()
 {
     uint16_t width = 1024;
@@ -25,9 +28,23 @@ int main()
 		}
 	}
 
+	bgfx::init();
+
+    bgfx::PlatformData pd;
+    pd.ndt = nullptr;
+    pd.nwh = pMainWindow->GetNativeHandle();
+    bgfx::setPlatformData(pd);
+
+    bgfx::setViewRect(0, 0, 0, uint16_t(width), uint16_t(height));
+
+    // ImGui_Implbgfx_Init();
+
     while (true)
     {
         pMainWindow->Update();
+
+        //ImGui_Implbgfx_NewFrame();
+
         Timer::m_pTimer->UpdateFPS();
         pImGuiContext->Update(Timer::m_pTimer->GetDetTime());
 
@@ -43,7 +60,16 @@ int main()
         ImGui::Render();
 	    ImGui::UpdatePlatformWindows();
 	    ImGui::RenderPlatformWindowsDefault();
+
+        //// Submit ImGui rendering commands
+        //bgfx::submit(0, ImGui_Implbgfx_GetDrawList());
+        bgfx::frame();
     }
+
+    //// Destroy ImGui renderer
+    //ImGui_Implbgfx_Shutdown();
+
+    bgfx::shutdown();
 
     return 0;
 }
