@@ -12,6 +12,7 @@ target("ImGuiGreeting")
     add_headerfiles(
         "*.hpp",
         "*.h",
+        "shader/*.bin.h",
 
         "$(projectdir)/Vendor/stb/*.h"
     )
@@ -37,3 +38,18 @@ target("ImGuiGreeting")
     
 
     add_defines("CDEDITOR_RESOURCES_ROOT_PATH=\"" .. (os.projectdir():gsub("\\", "\\\\")) .. "/Res/" .. "\"")
+    add_defines("__STDC_LIMIT_MACROS"
+                , "__STDC_FORMAT_MACROS"
+                , "__STDC_CONSTANT_MACROS"
+                , "NDEBUG"
+                , "WIN32"
+                , "_WIN32"
+                , "_HAS_EXCEPTIONS=0"
+                , "_HAS_ITERATOR_DEBUGGING=0"
+                , "_ITERATOR_DEBUG_LEVEL=0"
+                , "_SCL_SECURE=0"
+                , "_SECURE_SCL=0"
+                , "_SCL_SECURE_NO_WARNINGS"
+                , "_CRT_SECURE_NO_WARNINGS"
+                , "_CRT_SECURE_NO_DEPRECATE"
+                , "BX_CONFIG_DEBUG")
