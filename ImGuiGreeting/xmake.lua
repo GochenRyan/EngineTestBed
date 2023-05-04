@@ -53,3 +53,4 @@ target("ImGuiGreeting")
                 , "_CRT_SECURE_NO_WARNINGS"
                 , "_CRT_SECURE_NO_DEPRECATE"
                 , "BX_CONFIG_DEBUG")
+    add_defines("CD_PLATFORM_WINDOWS")

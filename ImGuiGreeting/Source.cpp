@@ -49,12 +49,12 @@ int main()
 
     bgfx::Init initDesc;
     initDesc.type = bgfx::RendererType::Direct3D11;
+    initDesc.platformData.nwh = pMainWindow->GetNativeHandle();
+    initDesc.platformData.ndt = nullptr;
+    initDesc.resolution.width = width;
+    initDesc.resolution.height = height;
+    initDesc.resolution.reset = BGFX_RESET_VSYNC;
     bgfx::init(initDesc);
-
-    bgfx::PlatformData pd;
-    pd.ndt = nullptr;
-    pd.nwh = pMainWindow->GetNativeHandle();
-    bgfx::setPlatformData(pd);
 
     //bgfx::setDebug(BGFX_DEBUG_TEXT);
     bgfx::setDebug(BGFX_DEBUG_NONE);
