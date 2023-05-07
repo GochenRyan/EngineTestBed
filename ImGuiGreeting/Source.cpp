@@ -12,6 +12,7 @@
 #include <bgfx/bgfx.h>
 #include <bgfx/platform.h>
 #include <bgfx/embedded_shader.h>
+#include <bx/math.h>
 
 static const bgfx::EmbeddedShader s_embeddedShaders[] =
 {
@@ -143,9 +144,14 @@ int main()
         const ImDrawData* pImGuiDrawData = ImGui::GetDrawData();
         float x = pImGuiDrawData->DisplayPos.x;
         float y = pImGuiDrawData->DisplayPos.y;
-        float width = pImGuiDrawData->DisplaySize.x;
-        float height = pImGuiDrawData->DisplaySize.y;
+        float displayWidth = pImGuiDrawData->DisplaySize.x;
+        float displayHeight = pImGuiDrawData->DisplaySize.y;
         const bgfx::Caps* pCapabilities = bgfx::getCaps();
+
+        float ortho[16];
+        bx::mtxOrtho(ortho, x, x + displayWidth, y + displayHeight, y, 0.0f, 1000.0f, 0.0f, pCapabilities->homogeneousDepth, bx::Handedness::Left);
+        bgfx::setViewTransform(0, NULL, ortho);
+        // Set view 0 default viewport.
 
         // Set view 0 default viewport.
         bgfx::setViewRect(0, 0, 0, uint16_t(width), uint16_t(height));
