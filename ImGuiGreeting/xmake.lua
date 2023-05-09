@@ -12,9 +12,9 @@ target("ImGuiGreeting")
     add_headerfiles(
         "*.hpp",
         "*.h",
-        "shader/*.bin.h",
+        "shader/*.bin.h"
 
-        "$(projectdir)/Vendor/stb/*.h"
+        -- "$(projectdir)/Vendor/stb/*.h"
     )
     add_files(
         "*.cpp"
@@ -26,9 +26,11 @@ target("ImGuiGreeting")
         "$(projectdir)/Vendor/glad/include/",
         "$(projectdir)/Vendor/freetype/include/",
         "$(projectdir)/Vendor/SDL/include/",
-        "$(projectdir)/Vendor/stb/",
+        -- "$(projectdir)/Vendor/stb/",
         "$(projectdir)/Vendor/bgfx/include/",
-        "$(projectdir)/Vendor/bimg/include/"
+        "$(projectdir)/Vendor/bimg/include/",
+        "$(projectdir)/Vendor/bx/include/",
+        "$(projectdir)/Vendor/bimg/3rdparty/"
     )
 
     add_links(

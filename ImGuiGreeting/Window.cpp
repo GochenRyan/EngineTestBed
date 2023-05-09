@@ -8,8 +8,7 @@
 #include <SDL3/SDL_joystick.h>
 #include <SDL3/SDL_gamepad.h>
 
-#define STB_IMAGE_IMPLEMENTATION
-#include <stb_image.h>
+#include <stb/stb_image.h>
 
 #include <string>
 

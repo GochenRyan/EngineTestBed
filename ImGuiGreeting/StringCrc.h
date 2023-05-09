@@ -1,13 +1,14 @@
 #pragma once
 
-#include "xxhash.hpp"
+#include "StringHash.hpp"
+
 
 template<typename T>
 class TStringCrc final
 {
 public:
 	TStringCrc() = default;
-	explicit constexpr TStringCrc(std::string_view sv) : m_hashValue(xxh::hash_t<T>(sv)) {}
+	explicit constexpr TStringCrc(std::string_view sv) : m_hashValue(StringHash<T>(sv)) {}
 	explicit constexpr TStringCrc(const char* str, std::size_t n) : m_hashValue(StringHash<T>(str, n)) {}
 	TStringCrc(const TStringCrc&) = default;
 	TStringCrc& operator=(const TStringCrc&) = default;

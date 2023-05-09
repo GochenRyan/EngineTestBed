@@ -3,6 +3,7 @@
 
 #include <bgfx/bgfx.h>
 #include <bimg/decode.h>
+#include <bimg/bimg.h>
 #include <bx/allocator.h>
 
 #include <cassert>
@@ -214,6 +215,9 @@ bgfx::TextureHandle RenderContext::CreateTexture(const char* pFilePath, uint64_t
 	uint8_t* pRawData = new uint8_t[fileSize];
 	fin.read(reinterpret_cast<char*>(pRawData), fileSize);
 	fin.close();
+
+	bimg::TextureFormat::Enum _dstFormat;
+	bx::Error* _err;
 
 	bimg::ImageContainer* imageContainer = bimg::imageParse(GetResourceAllocator(), pRawData, static_cast<uint32_t>(fileSize));
 	const bgfx::Memory* mem = bgfx::makeRef(
