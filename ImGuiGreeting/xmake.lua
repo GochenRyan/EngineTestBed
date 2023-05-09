@@ -27,7 +27,8 @@ target("ImGuiGreeting")
         "$(projectdir)/Vendor/freetype/include/",
         "$(projectdir)/Vendor/SDL/include/",
         "$(projectdir)/Vendor/stb/",
-        "$(projectdir)/Vendor/bgfx/include/"
+        "$(projectdir)/Vendor/bgfx/include/",
+        "$(projectdir)/Vendor/bimg/include/"
     )
 
     add_links(
