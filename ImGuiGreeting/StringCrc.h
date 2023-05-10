@@ -8,15 +8,15 @@ class TStringCrc final
 {
 public:
 	TStringCrc() = default;
-	explicit constexpr TStringCrc(std::string_view sv) : m_hashValue(StringHash<T>(sv)) {}
-	explicit constexpr TStringCrc(const char* str, std::size_t n) : m_hashValue(StringHash<T>(str, n)) {}
+	explicit TStringCrc(std::string_view sv) : m_hashValue(StringHash<T>(sv)) {}
+	explicit TStringCrc(const char* str, std::size_t n) : m_hashValue(StringHash<T>(str, n)) {}
 	TStringCrc(const TStringCrc&) = default;
 	TStringCrc& operator=(const TStringCrc&) = default;
 	TStringCrc(TStringCrc&&) = default;
 	TStringCrc& operator=(TStringCrc&&) = default;
 	~TStringCrc() = default;
 
-	constexpr T Value() const { return m_hashValue; }
+	T Value() const { return m_hashValue; }
 	bool operator==(const TStringCrc& other) const { return m_hashValue == other.m_hashValue; }
 	bool operator!=(const TStringCrc& other) const { return m_hashValue != other.m_hashValue; }
 

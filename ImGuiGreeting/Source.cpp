@@ -13,6 +13,7 @@
 #include <bgfx/platform.h>
 #include <bgfx/embedded_shader.h>
 #include <bx/math.h>
+#include "RenderContext.h"
 
 static const bgfx::EmbeddedShader s_embeddedShaders[] =
 {
@@ -48,8 +49,23 @@ int main()
 		}
 	}
 
+    // std::unique_ptr<RenderContext> pRenderContext = std::make_unique<RenderContext>();
+    // pRenderContext->Init();
+    // pMainWindow->OnResize.Bind<RenderContext, &RenderContext::OnResize>(pRenderContext.get());
+
+    // StringCrc sceneViewRenderTargetName("SceneRenderTarget");
+	// std::vector<AttachmentDescriptor> attachmentDesc = {
+	// 	{ .textureFormat = TextureFormat::RGBA32F },
+	// 	{ .textureFormat = TextureFormat::RGBA32F },
+	// 	{ .textureFormat = TextureFormat::D32F },
+	// };
+
+    // // The init size doesn't make sense. It will resize by SceneView.
+	// RenderTarget* pSceneRenderTarget = pRenderContext->CreateRenderTarget(sceneViewRenderTargetName, 1, 1, std::move(attachmentDesc));
+
+
     bgfx::Init initDesc;
-    initDesc.type = bgfx::RendererType::Direct3D11;
+    // initDesc.type = bgfx::RendererType::Direct3D11;
     initDesc.platformData.nwh = pMainWindow->GetNativeHandle();
     initDesc.platformData.ndt = nullptr;
     initDesc.resolution.width = width;

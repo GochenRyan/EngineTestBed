@@ -2,7 +2,6 @@
 
 #include "RenderTarget.h"
 #include "VertexAttribute.h"
-#include "VertexLayoutUtility.h"
 
 #include "StringCrc.h"
 #include <bgfx/bgfx.h>
