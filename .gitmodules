@@ -30,3 +30,7 @@
 	path = Vendor/bimg
 	url = https://github.com/GochenRyan/bimg.git
 	branch = master
+[submodule "Vendor/glm"]
+	path = Vendor/glm
+	url = https://github.com/GochenRyan/glm.git
+	branch = master

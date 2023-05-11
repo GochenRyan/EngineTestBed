@@ -1,6 +1,6 @@
 $input v_color0, v_texcoord0
 
-#include "../common.sh"
+#include "../common/common.sh"
 
 SAMPLER2D(s_tex, 0);
 

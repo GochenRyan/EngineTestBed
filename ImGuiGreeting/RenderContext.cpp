@@ -37,7 +37,6 @@ RenderContext::~RenderContext()
 void RenderContext::Init()
 {
 	bgfx::Init initDesc;
-	initDesc.type = bgfx::RendererType::Direct3D11;
 	bgfx::init(initDesc);
 
 	bgfx::setDebug(BGFX_DEBUG_NONE);

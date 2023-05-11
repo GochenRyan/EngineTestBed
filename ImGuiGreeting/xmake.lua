@@ -30,7 +30,8 @@ target("ImGuiGreeting")
         "$(projectdir)/Vendor/bgfx/include/",
         "$(projectdir)/Vendor/bimg/include/",
         "$(projectdir)/Vendor/bx/include/",
-        "$(projectdir)/Vendor/bimg/3rdparty/"
+        "$(projectdir)/Vendor/bimg/3rdparty/",
+        "$(projectdir)/Vendor/glm/"
     )
 
     add_links(

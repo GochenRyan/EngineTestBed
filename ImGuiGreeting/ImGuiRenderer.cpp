@@ -2,7 +2,10 @@
 
 #include "RenderContext.h"
 
-#include <imgui/imgui.h>
+#include "Math.hpp"
+
+#include <imgui.h>
+#include <glm/glm.hpp>
 
 void ImGuiRenderer::Init()
 {
@@ -63,9 +66,10 @@ void ImGuiRenderer::UpdateView(const float* pViewMatrix, const float* pProjectio
 	float height = pImGuiDrawData->DisplaySize.y;
 	const bgfx::Caps* pCapabilities = bgfx::getCaps();
 
-	// cd::Matrix4x4 orthoMatrix = cd::Matrix4x4::Orthographic(x, x + width, y, y + height, 0.0f, 1000.0f, 0.0f, pCapabilities->homogeneousDepth);
-	// bgfx::setViewRect(GetViewID(), 0, 0, uint16_t(width), uint16_t(height));
-	// bgfx::setViewTransform(GetViewID(), nullptr, orthoMatrix.Begin());
+	glm::mat4 ortho = Otho(x, x + width, y + height, y, 0.0f, 1000.0f, 0.0f, pCapabilities->homogeneousDepth);
+
+	bgfx::setViewRect(GetViewID(), 0, 0, uint16_t(width), uint16_t(height));
+	bgfx::setViewTransform(GetViewID(), nullptr, &ortho[0][0]);
 }
 
 void ImGuiRenderer::Render(float deltaTime)
