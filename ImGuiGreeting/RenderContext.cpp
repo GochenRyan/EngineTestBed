@@ -34,9 +34,15 @@ RenderContext::~RenderContext()
 	bgfx::shutdown();
 }
 
-void RenderContext::Init()
+void RenderContext::Init(std::unique_ptr<Window>& window)
 {
 	bgfx::Init initDesc;
+	initDesc.platformData.nwh = window->GetNativeHandle();
+	initDesc.platformData.ndt = nullptr;
+	initDesc.resolution.width = window->GetWidth();
+	initDesc.resolution.height = window->GetHeight();
+	initDesc.resolution.reset = BGFX_RESET_MSAA_X16 | BGFX_RESET_VSYNC;
+
 	bgfx::init(initDesc);
 
 	bgfx::setDebug(BGFX_DEBUG_NONE);
@@ -120,7 +126,7 @@ bgfx::ShaderHandle RenderContext::CreateShader(const char* pFilePath)
 		return itShaderCache->second;
 	}
 
-	std::string shaderFileFullPath = std::format("{}Shaders/{}", CDEDITOR_RESOURCES_ROOT_PATH, pFilePath);
+	std::string shaderFileFullPath = std::format("{}Shaders/shaders/{}", CDEDITOR_RESOURCES_ROOT_PATH, pFilePath);
 	std::ifstream fin(shaderFileFullPath, std::ios::in | std::ios::binary);
 	if (!fin.is_open())
 	{

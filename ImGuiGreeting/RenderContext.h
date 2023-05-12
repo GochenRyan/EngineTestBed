@@ -2,6 +2,7 @@
 
 #include "RenderTarget.h"
 #include "VertexAttribute.h"
+#include "Window.h"
 
 #include "StringCrc.h"
 #include <bgfx/bgfx.h>
@@ -24,7 +25,7 @@ public:
 	RenderContext& operator=(RenderContext&&) = delete;
 	~RenderContext();
 
-	void Init();
+	void Init(std::unique_ptr<Window>& window);
 	void OnResize(uint16_t width, uint16_t height);
 	void BeginFrame();
 	void EndFrame();

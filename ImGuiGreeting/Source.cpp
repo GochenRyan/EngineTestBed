@@ -40,7 +40,7 @@ int main()
     std::vector<std::unique_ptr<Renderer>> pEngineRenderers;
 
     std::unique_ptr<RenderContext> pRenderContext = std::make_unique<RenderContext>();
-    pRenderContext->Init();
+    pRenderContext->Init(pMainWindow);
     pMainWindow->OnResize.Bind<RenderContext, &RenderContext::OnResize>(pRenderContext.get());
 
     StringCrc sceneViewRenderTargetName("SceneRenderTarget");
