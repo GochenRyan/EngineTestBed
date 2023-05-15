@@ -43,15 +43,10 @@ int main()
     pRenderContext->Init(pMainWindow);
     pMainWindow->OnResize.Bind<RenderContext, &RenderContext::OnResize>(pRenderContext.get());
 
-    StringCrc sceneViewRenderTargetName("SceneRenderTarget");
-	std::vector<AttachmentDescriptor> attachmentDesc = {
-		{ .textureFormat = TextureFormat::RGBA32F },
-		{ .textureFormat = TextureFormat::RGBA32F },
-		{ .textureFormat = TextureFormat::D32F },
-	};
+    StringCrc editorSwapChainName("EditorUISwapChain");
 
     // The init size doesn't make sense. It will resize by SceneView.
-	RenderTarget* pSceneRenderTarget = pRenderContext->CreateRenderTarget(sceneViewRenderTargetName, width, height, std::move(attachmentDesc));
+	RenderTarget* pSceneRenderTarget = pRenderContext->CreateRenderTarget(editorSwapChainName, width, height, pMainWindow->GetNativeHandle());
 
     // Note that if you don't want to use ImGuiRenderer for engine, you should also disable EngineImGuiContext.
 	std::unique_ptr<Renderer> pRenderer = std::make_unique<ImGuiRenderer>(pRenderContext.get(), pRenderContext->CreateView(), pSceneRenderTarget);

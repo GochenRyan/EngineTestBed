@@ -5,7 +5,12 @@
 #include "Math.hpp"
 
 #include <imgui.h>
+
+#define GLM_LEFT_HANDED
 #include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
+#include <bx/math.h>
 
 void ImGuiRenderer::Init()
 {
@@ -66,10 +71,13 @@ void ImGuiRenderer::UpdateView(const float* pViewMatrix, const float* pProjectio
 	float height = pImGuiDrawData->DisplaySize.y;
 	const bgfx::Caps* pCapabilities = bgfx::getCaps();
 
-	glm::mat4 ortho = Otho(x, x + width, y + height, y, 0.0f, 1000.0f, 0.0f, pCapabilities->homogeneousDepth);
+	//glm::mat4 ortho = Otho(x, x + width, y + height, y, 0.0f, 1000.0f, 0.0f, pCapabilities->homogeneousDepth);
+	float ortho[16];
+	bx::mtxOrtho(ortho, x, x + width, y + height, y, 0.0f, 1000.0f, 0.0f, pCapabilities->homogeneousDepth, bx::Handedness::Left);
 
 	bgfx::setViewRect(GetViewID(), 0, 0, uint16_t(width), uint16_t(height));
-	bgfx::setViewTransform(GetViewID(), nullptr, &ortho[0][0]);
+	bgfx::setViewTransform(GetViewID(), nullptr, ortho);
+	bgfx::setViewClear(GetViewID(), BGFX_CLEAR_COLOR | BGFX_CLEAR_DEPTH, 0x303030ff, 1.0f, 0);
 }
 
 void ImGuiRenderer::Render(float deltaTime)
