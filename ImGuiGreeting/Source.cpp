@@ -54,7 +54,7 @@ int main()
     pRenderer->Init();
 	pEngineRenderers.emplace_back(std::move(pRenderer));
 
-    while (true)
+    while (!pMainWindow->ShouldClose())
     {
         Timer::m_pTimer->UpdateFPS();
 
