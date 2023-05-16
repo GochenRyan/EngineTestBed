@@ -1,0 +1,6 @@
+target("RPC")
+    set_kind("binary")
+    add_headerfiles("*.h")
+    add_files("*.cpp")
+    add_includedirs("$(projectdir)/RPC")
+    add_includedirs("$(projectdir)/Vendor/packio/include/")
