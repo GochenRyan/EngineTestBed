@@ -1,6 +1,7 @@
 set_project("EnigineTestBench")
 
 add_rules("mode.debug")
+
 set_languages("cxx20")
 
 add_cxxflags("/Zc:__cplusplus")
@@ -20,5 +21,4 @@ set_targetdir("lib")
 
 -- includes("Vendor/imgui")
 -- includes("ImGuiGreeting")
-
-includes("RPC")
+includes("RPCTest")
