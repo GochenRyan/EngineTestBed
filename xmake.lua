@@ -1,6 +1,7 @@
 set_project("EnigineTestBench")
 
 add_rules("mode.debug")
+
 set_languages("cxx20")
 
 add_cxxflags("/Zc:__cplusplus")
