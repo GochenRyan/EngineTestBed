@@ -7,3 +7,6 @@ Please install xmake first: [xmake](https://github.com/xmake-io/xmake). You can 
 ```
 xmake project -k vsxmake
 ```
+
+## Reminder
+- Visual Studio Vesion: 2022
