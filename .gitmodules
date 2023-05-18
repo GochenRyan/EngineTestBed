@@ -34,3 +34,7 @@
 	path = Vendor/glm
 	url = https://github.com/GochenRyan/glm.git
 	branch = master
+[submodule "Vendor/yalantinglibs"]
+	path = Vendor/yalantinglibs
+	url = https://github.com/GochenRyan/yalantinglibs.git
+	branch = main
